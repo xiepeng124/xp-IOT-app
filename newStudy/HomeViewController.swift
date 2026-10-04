@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
         "PCM音频播放",
         "录音及变声",
         "K线图",
+        "扫一扫",
         "关于新学习"
     ]
     
@@ -222,6 +223,9 @@ extension HomeViewController: UITableViewDelegate {
         case 11:
             let kLineView = KLineViewController()
             navigationController?.pushViewController(kLineView, animated: true)
+            case 12:
+            let scan = SWQRCodeViewController()
+            navigationController?.pushViewController(scan, animated: true)
         default:
             let alert = UIAlertController(title: "关于", message: "这是一个基于 Swift 的学习演示项目", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "知道了", style: .default))

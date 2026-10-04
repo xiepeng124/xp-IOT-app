@@ -11,7 +11,6 @@ class BluetoothViewController: UIViewController {
     private var centralManager: CBCentralManager!
     private var ledPeripheral: CBPeripheral?
     private var writeCharacteristic: CBCharacteristic?
-    
     // UI Elements
     private let statusLabel: UILabel = {
         let label = UILabel()

@@ -18,10 +18,10 @@ class NFCManager: NSObject {
     
     func startScanning() {
         // 1. 必须先检查硬件可用性
-        guard NFCNDEFReaderSession.readingAvailable else {
-            onError?("当前设备不支持 NFC 扫描")
-            return
-        }
+//        guard NFCNDEFReaderSession.readingAvailable else {
+//            onError?("当前设备不支持 NFC 扫描")
+//            return
+//        }
         
         // 2. 初始化 Session
         // 注意：queue 为 nil 表示在子线程回调，invalidateAfterFirstRead 设为 true 通常更符合单次读取场景
