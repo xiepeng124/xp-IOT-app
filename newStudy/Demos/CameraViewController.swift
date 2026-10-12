@@ -495,6 +495,8 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
             // 计算 Aspect Fill 的绘制区域，防止变形
             let targetRect = view.bounds
             let imageSize = capturedImage.size
+            print("targetRect: \(targetRect.size)")
+            print("imageSize: \(imageSize)")
             let widthRatio = targetRect.width / imageSize.width
             let heightRatio = targetRect.height / imageSize.height
             let ratio = max(widthRatio, heightRatio)
@@ -506,15 +508,16 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
                 width: newSize.width,
                 height: newSize.height
             )
-            
+           
             // 绘制拍摄的照片作为背景
             capturedImage.draw(in: drawRect)
             
             // 绘制贴纸容器 (仅绘制贴纸，不绘制按钮或其他 UI)
             stickerContainer.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-            
+            let watermarkRect = watermarkView.convert(watermarkView.bounds, to: view)
+
             // 绘制水印 (直接在最终图片上合成)
-            watermarkView.drawHierarchy(in: watermarkView.frame, afterScreenUpdates: true)
+            watermarkView.drawHierarchy(in: watermarkRect, afterScreenUpdates: true)
         }
         
         // 展示预览视图
