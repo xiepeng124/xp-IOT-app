@@ -60,3 +60,8 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+# 忽略 macOS 缓存文件
+echo ".DS_Store" >> .gitignore
+# 忽略 Xcode 本地用户数据
+echo "newStudy.xcodeproj/xcuserdata/" >> .gitignore
